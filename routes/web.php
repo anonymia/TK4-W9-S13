@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NilaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [NilaiController::class, 'index'])->name('nilai');
+Route::view('/create', 'input');
+Route::post('/create', [NilaiController::class, 'create']);
+Route::get('/{id}', [NilaiController::class, 'get']);
+Route::put('/{id}', [NilaiController::class, 'put']);
+Route::delete('/{id}', [NilaiController::class, 'delete']);
