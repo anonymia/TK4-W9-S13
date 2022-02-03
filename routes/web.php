@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,7 @@ use App\Http\Controllers\NilaiController;
 |
 */
 
-Route::get('/', [NilaiController::class, 'index'])->name('nilai');
-Route::view('/create', 'input');
-Route::post('/create', [NilaiController::class, 'create']);
-Route::get('/{id}', [NilaiController::class, 'get']);
-Route::put('/{id}', [NilaiController::class, 'put']);
-Route::delete('/{id}', [NilaiController::class, 'delete']);
+Route::get('/', [VideoController::class, 'index'])->name('video');
+Route::view('/create', 'create');
+Route::post('/create', [VideoController::class, 'create']);
+Route::delete('/{id}', [VideoController::class, 'delete']);
